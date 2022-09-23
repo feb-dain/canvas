@@ -39,6 +39,7 @@ let filledColor = "white";
 let mode = 0;
 let rectX;
 let rectY;
+let drawing = false;
 
 
 // Resize
@@ -54,6 +55,14 @@ function resizeCanvas(canvas) {
     return needResize;
 }
 
+// Touch
+function getTouchPos(e) {
+    return {
+        x: e.touches[0].clientX - e.target.offsetLeft,
+        y: e.touches[0].clientY - e.target.offsetTop + document.documentElement.scrollTop
+    }
+}
+
 // Move
 function onMove(e){
     resizeCanvas(ctx.canvas);
@@ -63,17 +72,17 @@ function onMove(e){
             ctx.stroke();
             return;
         }else if(mode === 3){
+            const circleX = e.offsetX;
+            const circleW = circleX - rectX;
+            ctx.arc(rectX, rectY, circleW, 0, Math.PI*2, true);
+            ctx.fill();
+        }else if(mode === 4){
             const x = e.offsetX;
             const y = e.offsetY;
             const w = x - rectX;
             const h = y - rectY;
             ctx.moveTo(x, y);
             ctx.fillRect(rectX, rectY, w, h);
-        }else if(mode === 4){
-            const circleX = e.offsetX;
-            const circleW = circleX - rectX;
-            ctx.arc(rectX, rectY, circleW, 0, Math.PI*2, true);
-            ctx.fill();
         }
     }
     ctx.moveTo(e.offsetX, e.offsetY);
@@ -200,11 +209,11 @@ function onSave(){
 }
 
 // Figures
-function onRect(){
+function onCircle(){
     mode = 3;
     body.className = "cursor-plus";
 }
-function onCircle(){
+function onRect(){
     mode = 4;
     body.className = "cursor-plus";
 }
@@ -216,14 +225,46 @@ function onTrans(e){
     transT.innerText = e.target.value;
 }
 
+// touch
+function draw(curX, curY) {
+    ctx.beginPath();
+    ctx.moveTo(startX, startY);
+    ctx.lineTo(curX, curY);
+    ctx.stroke();
+}
+function touchStart(e) {
+    if(mode !== 2 && mode !== 5 ){
+        e.preventDefault();
+        drawing = true;
+        const { x, y } = getTouchPos(e);
+        startX = x;
+        startY = y;
+    }    
+}
+function touchMove(e) {
+    if(!drawing) return;
+    let { x, y } = getTouchPos(e);
+    draw(x, y);
+    startX = x;
+    startY = y;
+}
+function touchEnd() {
+    if(!drawing) return;
+    ctx.beginPath();
+    ctx.arc(startX, startY, ctx.lineWidth/2, 0, Math.PI*2);
+    ctx.fill();
+    drawing = false;
+}
+
 canvas.addEventListener("mousemove", onMove);
-canvas.addEventListener("touchmove", onMove);
 canvas.addEventListener("mousedown", painting);
-canvas.addEventListener("touchstart", painting);
 canvas.addEventListener("mouseup", cancelPainting);
-canvas.addEventListener("touchend", cancelPainting);
 canvas.addEventListener("click", canvasClick);
 canvas.addEventListener("mouseleave", cancelPainting);
+
+canvas.addEventListener("touchmove", touchMove, false);
+canvas.addEventListener("touchstart", touchStart, false);
+canvas.addEventListener("touchend", touchEnd, false);
 
 color.addEventListener("change", colorChange);
 colorOptions.forEach((color) => color.addEventListener("click", colorClick));
