@@ -1,7 +1,7 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const body = document.body;
-// Control
+// Controls
 const lineWidth = document.getElementById("line-width");
 const trans = document.getElementById("trans");
 // Color
@@ -106,7 +106,7 @@ function cancelPainting(){
     ctx.beginPath();
 }
 
-// Control
+// Controls
 function lineWidthChange(e){
     ctx.lineWidth = e.target.value;
     const widthT = document.getElementById("width-title");
