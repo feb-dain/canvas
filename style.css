@@ -27,6 +27,10 @@ body::-webkit-scrollbar {
     overflow-y: scroll;
     display: none;
 }
+/* 스크롤 막기 */
+.touch-action {
+    touch-action: none;
+}
 
 /* Tools */
 #tools {

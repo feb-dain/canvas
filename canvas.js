@@ -238,6 +238,7 @@ function draw(curX, curY) {
     ctx.stroke();
 }
 function touchStart(e) {
+    body.classList.add("touch-action");
     if(mode !== 2 && mode !== 5 ){
         e.preventDefault();
         drawing = true;
@@ -260,6 +261,7 @@ function touchMove(e) {
     startY = y;
 }
 function touchEnd() {
+    body.classList.remove("touch-action");
     if(!drawing) return;
     ctx.beginPath();
     drawing = false;
