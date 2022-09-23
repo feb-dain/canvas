@@ -18,8 +18,6 @@ body {
     cursor: url("./cursor/paint-brush.png"), auto;
     padding: 1.2rem 0;
     
-    /* 터치 스크롤 막기 */
-    touch-action: none;
     /* 스크롤 숨기기 */
     -ms-overflow-style: none;
     scrollbar-width: none;
