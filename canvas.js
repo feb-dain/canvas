@@ -41,6 +41,9 @@ let rectX;
 let rectY;
 let drawing = false;
 
+// modal Message
+let modalM1 = document.querySelector(".modalM1");
+let modalM2 = document.querySelector(".modalM2");
 
 // Resize
 function resizeCanvas(canvas) {
@@ -137,6 +140,8 @@ function canvasClick(e) {
         const txtW = fontW.value;
         if (txt !== ""){
             if(isNaN(txtSize) || txtSize < 1){
+                modalM2.classList.add("hidden");
+                modalM1.classList.remove("hidden");
                 modal.classList.remove("hidden");
             }else{
                 ctx.lineWidth = 1;
@@ -239,7 +244,13 @@ function touchStart(e) {
         const { x, y } = getTouchPos(e);
         startX = x;
         startY = y;
-    }    
+    }
+    if(mode === 3 || mode === 4){
+        drawing = false;
+        modalM1.classList.add("hidden");
+        modalM2.classList.remove("hidden");
+        modal.classList.remove("hidden");
+    }
 }
 function touchMove(e) {
     if(!drawing) return;
