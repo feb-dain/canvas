@@ -217,8 +217,11 @@ function onTrans(e){
 }
 
 canvas.addEventListener("mousemove", onMove);
+canvas.addEventListener("touchmove", onMove);
 canvas.addEventListener("mousedown", painting);
+canvas.addEventListener("touchstart", painting);
 canvas.addEventListener("mouseup", cancelPainting);
+canvas.addEventListener("touchend", cancelPainting);
 canvas.addEventListener("click", canvasClick);
 canvas.addEventListener("mouseleave", cancelPainting);
 
