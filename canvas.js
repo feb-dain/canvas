@@ -262,8 +262,6 @@ function touchMove(e) {
 function touchEnd() {
     if(!drawing) return;
     ctx.beginPath();
-    ctx.arc(startX, startY, ctx.lineWidth/2, 0, Math.PI*2);
-    ctx.fill();
     drawing = false;
 }
 
