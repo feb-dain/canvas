@@ -15,7 +15,7 @@ body {
     min-height: 100vh;
     background: linear-gradient(var(--white-color), #addbed, skyblue);
     font-family: "Noto Sans KR", 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-    cursor: url("./cursor/paint-brush.png"), auto;
+    cursor: url("../cursor/paint-brush.png"), auto;
     padding: 1.2rem 0;
     
     /* 스크롤 숨기기 */
@@ -207,19 +207,19 @@ input#font-size {
 
 /* Cursor */
 body.cursor-eraser {
-    cursor: url("./cursor/eraser.png"), auto;
+    cursor: url("../cursor/eraser.png"), auto;
 }
 body.cursor-brush {
-    cursor: url("./cursor/paint-brush.png"), auto;
+    cursor: url("../cursor/paint-brush.png"), auto;
 }
 body.cursor-plus {
-    cursor: url("./cursor/plus-brush.png"), auto;
+    cursor: url("../cursor/plus-brush.png"), auto;
 }
 body.cursor-stamp {
-    cursor: url("./cursor/stamp.png"), auto;
+    cursor: url("../cursor/stamp.png"), auto;
 }
 body.cursor-bucket {
-    cursor: url("./cursor/paint-bucket.png"), auto;
+    cursor: url("../cursor/paint-bucket.png"), auto;
 }
 /* Modal */
 .hidden {
