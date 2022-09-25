@@ -593,6 +593,7 @@ body.cursor-bucket {
     /* Range */
     input[type=range] {
         margin: 0.4rem 0;
+        width: 18rem;
     }
 
     fieldset {
