@@ -159,7 +159,7 @@ fieldset {
     flex-direction: column;
     gap: 2rem;
 }
-fieldset>label{
+fieldset>div{
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
@@ -167,13 +167,15 @@ fieldset>label{
     padding: 1.2rem;
     border: 0.1rem solid var(--white-color);
     color: var(--black-color);
+    border-radius: 1rem;
+    font-weight: 500;
 }
-fieldset>label>p {
+fieldset>div>p {
     font-size: 1.4rem;
     padding: 0.2rem 0;
     text-align: left;
 }
-#width-title, #trans-title {
+#width-value, #trans-value {
     text-align: center;
     font-size: 1.6rem;
 }
@@ -196,8 +198,9 @@ input#text {
 }
 .txt-container i {
     font-size: 1.4rem;
+    text-align: center;
 }
-.control {
+.controls {
     display: flex;
     justify-content: space-around;
     margin-top: 0.4rem;
@@ -331,10 +334,10 @@ body.cursor-bucket {
     fieldset {
         gap: 1.6rem;
     }
-    fieldset>label>p {
+    fieldset>div>p {
         font-size: 1.2rem;
     }
-    #width-title, #trans-title {
+    #width-value, #trans-value {
         font-size: 1.4rem;
     }
 
@@ -487,10 +490,10 @@ body.cursor-bucket {
     fieldset {
         gap: 1.2rem;
     }
-    fieldset>label{
+    fieldset>div{
         width: 14rem;
     }
-    fieldset>label:first-child, fieldset>label:nth-child(2) {
+    fieldset>div:first-child, fieldset>div:nth-child(2) {
         width: 13rem;
     }
     
@@ -596,15 +599,15 @@ body.cursor-bucket {
         align-items: center;
         padding: 2.8rem 0 3.4rem;
     }
-    fieldset>label{
+    fieldset>div{
         flex-direction: row;
         gap: 0.8rem;
         padding: 1rem;
     }
-    fieldset>label:first-child, fieldset>label:nth-child(2) {
+    fieldset>div:first-child, fieldset>div:nth-child(2) {
         width: 28.4rem;
     }
-    fieldset>label>p {
+    fieldset>div>p {
         width: 5.2rem;
         padding: 0;
         align-self: center;
@@ -612,7 +615,7 @@ body.cursor-bucket {
         text-align: center;
         color: var(--white-color);
     }
-    #width-title, #trans-title {
+    #width-value, #trans-value {
         font-size: 1.2rem;
         width: 4rem;
         align-self: center;
