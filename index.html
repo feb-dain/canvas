@@ -15,7 +15,7 @@
     <script defer src="./js/canvas.js"></script>
 </head>
 <body>
-    <header id="tools">
+    <div id="tools">
         <img src="./seal.png" alt="Seal">
         <div class="btns">
             <button id="brush"><i class="bi bi-brush-fill"><br><span>브러쉬</span></i></button>
@@ -30,7 +30,7 @@
             <button id="rect"><i class="bi bi-square-fill"><br><span>네모</span></i></button>
             <button id="save"><i class="bi bi-save"><br><span>저장</span></i></button>
         </div>
-    </header>
+    </div>
     <div id="wrap">
         <div class="color-options">
             <input id="color" type="color" />
@@ -50,13 +50,15 @@
         
         <fieldset>
             <label for="line-width">
-                <p>크기</p><span id="width-title">5</span>
+                <p>크기</p>
+                <p id="width-title">5</p>
                 <input id="line-width" type="range" min="1" max="10" 
                     value="5" />
             </label>
 
             <label for="trans">
-                <p>투명도</p><span id="trans-title">1</span>
+                <p>투명도</p>
+                <p id="trans-title">1</p>
                 <input id="trans" type="range" min="0.1" max="1" 
                     value="1" step="0.1" />
             </label>
