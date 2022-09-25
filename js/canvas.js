@@ -33,13 +33,13 @@ ctx.lineCap = "round";
 
 let isPainting = false; 
 let filledColor = "white";
+let drawing = false;
 
 
 // mode 0: initial | 1: eraser | 2: fill | 3: circle | 4: rectangle | 5: txt
 let mode = 0;
 let rectX;
 let rectY;
-let drawing = false;
 
 // modal Message
 let modalM1 = document.querySelector(".modalM1");
@@ -109,8 +109,8 @@ function cancelPainting(){
 // Controls
 function lineWidthChange(e){
     ctx.lineWidth = e.target.value;
-    const widthT = document.getElementById("width-title");
-    widthT.innerText = e.target.value;
+    const widthV = document.getElementById("width-value");
+    widthV.innerText = e.target.value;
 }
 
 // Color
@@ -226,8 +226,8 @@ function onRect(){
 // Transparency
 function onTrans(e){
     ctx.globalAlpha = e.target.value;
-    const transT = document.getElementById("trans-title");
-    transT.innerText = e.target.value;
+    const transV = document.getElementById("trans-value");
+    transV.innerText = e.target.value;
 }
 
 // touch
